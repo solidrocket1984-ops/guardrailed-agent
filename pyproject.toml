@@ -1,0 +1,33 @@
+[project]
+name = "guardrailed-agent"
+version = "1.0.0"
+description = "Agente conversacional de reservas con capa determinista alrededor del LLM y suite de ataques de prompt injection."
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.110",
+  "uvicorn>=0.29",
+  "pydantic>=2.6",
+  "httpx>=0.27",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.5"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["app", "evals"]
+
+[tool.setuptools.package-data]
+app = ["static/*.html"]
+evals = ["*.json"]
