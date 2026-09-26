@@ -10,13 +10,13 @@ Proveedores:
 """
 from __future__ import annotations
 
+import datetime as dt
 import json
 import os
 import re
 import unicodedata
-import datetime as dt
 from datetime import date, time, timedelta
-from enum import Enum
+from enum import StrEnum
 from typing import Protocol
 
 import httpx
@@ -26,7 +26,7 @@ from pydantic import BaseModel, ConfigDict, ValidationError
 CANARY = "CANARY-7f3a9c"
 
 
-class Intent(str, Enum):
+class Intent(StrEnum):
     greeting = "greeting"
     book = "book"
     availability = "availability"
