@@ -11,7 +11,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = ["pytest>=8", "ruff>=0.5"]
+dev = ["pytest>=8", "ruff==0.15.11"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
@@ -31,3 +31,8 @@ packages = ["app", "evals"]
 [tool.setuptools.package-data]
 app = ["static/*.html"]
 evals = ["*.json"]
+
+[tool.ruff.lint]
+# Reglas fijadas explícitamente: los defaults cambian entre versiones de ruff.
+select = ["E", "F", "W", "I", "B", "UP"]
+ignore = ["E501"]  # regex largas; el ancho lo gestiona el formateador
